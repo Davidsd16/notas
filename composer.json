@@ -1,0 +1,15 @@
+{
+    "name": "david/notas",
+    "type": "yes",
+    "autoload": {
+        "psr-4": {
+            "David\\Notas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "david"
+        }
+    ],
+    "require": {}
+}
