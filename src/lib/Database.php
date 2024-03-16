@@ -39,8 +39,8 @@ class Database{
             // Devolver la instancia de PDO
             return $pdo;
 
-        } catch (\Throwable $th) {
-
+        } catch (PDOException $th) {
+            throw $th;
         }
     }
 
