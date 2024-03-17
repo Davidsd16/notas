@@ -3,6 +3,7 @@
 namespace David\Notes\models;
 
 use David\Notes\lib\Database;
+use PDO;
 
 class Note extends Database{
 
@@ -25,6 +26,38 @@ class Note extends Database{
         $query = $this->connect()->prepare("INSERT INTO notes(uuid, title, content, updated) VALUES(:uuid, :title, :content, NOW()");
         // Ejecuta la consulta SQL con los valores de la nota
         $query->execute(['title' => $this->title, 'uuid' => $this->uuid, 'content' => $this->content,]);
+    }
+
+    // Método para actualizar una nota en la base de datos
+    public function update(){
+        // Prepara la consulta SQL para actualizar la nota en la tabla 'notes'
+        $query = $this->connect()->prepare("UPDATE notes SET title = :title, content = :content, updated = NOW() WHERE uuid = :uuid");
+        // Ejecuta la consulta SQL con los nuevos valores del título y el contenido de la nota
+        $query->execute(['title' => $this->title, 'uuid' => $this->uuid, 'content' => $this->content,]);
+    }
+
+    // Método estático para obtener una nota por su UUID desde la base de datos
+    public static function get($uuid){
+        // Crea una nueva instancia de Database para establecer la conexión a la base de datos
+        $db = new Database;
+        // Prepara la consulta SQL para seleccionar la nota con el UUID proporcionado
+        $query = $db->connect()->prepare("SELECT * FROM notes WHERE uuid = :uuid");
+        // Ejecuta la consulta SQL con el UUID como parámetro
+        $query->execute(['uuid' => $uuid]);
+        // Crea una nueva instancia de Note con los datos obtenidos de la base de datos
+        $note = Note::createFromArray($query->fetch(PDO::FETCH_ASSOC));
+        // Devuelve la not creada
+        return $note;
+    }
+
+    // Método estático para crear una instancia de Note a partir de un array de datos
+    public static function createFromArray($arr){
+        // Crea una nueva instancia de Note con el título y el contenido del array
+        $note = new Note($arr['title'], $arr['content']);
+        // Establece el UUID de la nota con el valor del array
+        $note->setUuid($arr['uuid']);
+        // Devuelve la nota creada
+        return $note;
     }
 
     // Método para obtener el UUID de la nota
