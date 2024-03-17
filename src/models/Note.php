@@ -51,7 +51,7 @@ class Note extends Database{
     }
 
     // Método estático para crear una instancia de Note a partir de un array de datos
-    public static function createFromArray($arr){
+    public static function createFromArray($arr):Note{
         // Crea una nueva instancia de Note con el título y el contenido del array
         $note = new Note($arr['title'], $arr['content']);
         // Establece el UUID de la nota con el valor del array
