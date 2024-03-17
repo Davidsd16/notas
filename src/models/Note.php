@@ -17,7 +17,7 @@ class Note extends Database{
         // Genera un UUID único para la nota
         $this->uuid = uniqid();
     }
-    
+
     // Método para guardar la nota en la base de datos
     public function save()
     {
@@ -26,4 +26,35 @@ class Note extends Database{
         // Ejecuta la consulta SQL con los valores de la nota
         $query->execute(['title' => $this->title, 'uuid' => $this->uuid, 'content' => $this->content,]);
     }
+
+    // Método para obtener el UUID de la nota
+    public function getUuid(){
+        return $this->uuid;
+    }
+
+    // Método para establecer el UUID de la nota
+    public function setUuid($value){
+        $this->uuid = $value;
+    }
+
+    // Método para obtener el título de la nota
+    public function getTitle(){
+        return $this->title;
+    }
+
+    // Método para establecer el título de la nota
+    public function setTitle($value){
+        $this->title = $value;
+    }
+
+    // Método para obtener el contenido de la nota
+    public function getContent(){
+        return $this->content;
+    }
+
+    // Método para establecer el contenido de la nota
+    public function setContent($value){
+        $this->content = $value;
+    }
+
 }
