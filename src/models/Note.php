@@ -1,8 +1,8 @@
 <?php
 
-namespace David\Notes\models;
+namespace David\Notas\models;
 
-use David\Notes\lib\Database;
+use David\Notas\lib\Database;
 use PDO;
 
 class Note extends Database{
@@ -23,7 +23,7 @@ class Note extends Database{
     public function save()
     {
         // Prepara la consulta SQL para insertar la nota en la tabla 'notes'
-        $query = $this->connect()->prepare("INSERT INTO notes(uuid, title, content, updated) VALUES(:uuid, :title, :content, NOW()");
+        $query = $this->connect()->prepare("INSERT INTO notes(uuid, title, content, updated) VALUES(:uuid, :title, :content, NOW())");
         // Ejecuta la consulta SQL con los valores de la nota
         $query->execute(['title' => $this->title, 'uuid' => $this->uuid, 'content' => $this->content,]);
     }

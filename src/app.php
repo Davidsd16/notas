@@ -8,6 +8,6 @@ if (isset($_GET['view'])) {
     // Este require es temporal para test
     require 'src/views/create.php';
 } else {
-    require 'src/views/home.php';
+    require 'src/views/create.php';
 }
 

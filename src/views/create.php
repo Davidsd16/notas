@@ -1,16 +1,18 @@
 <?php
 
-    // Importamos la clase Note del namespace David\Notes\models
-    use David\Notes\models\Note;
+// Importamos la clase Note del namespace David\Notas\models
+use David\Notas\models\Note;
 
     // Verificamos si se ha enviado algún dato a través del formulario
     if (count($_POST) > 0) {
         // Obtenemos el título y el contenido del formulario
         $title   = isset($_POST['title']) ? $_POST['title'] : ''; // Si 'title' está seteado, asigna su valor; de lo contrario, asigna una cadena vacía
         $content = isset($_POST['content']) ? $_POST['content'] : ''; // Si 'content' está seteado, asigna su valor; de lo contrario, asigna una cadena vacía
+        var_dump($title);
+        var_dump($content);
 
         // Creamos una nueva instancia de la clase Note con el título y el contenido obtenidos
-        $note = new Note($title,$content);
+        $note = new Note($title, $content);
         // Guardamos la nueva nota en la base de datos
         $note->save();
     }

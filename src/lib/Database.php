@@ -1,6 +1,6 @@
 <?php
 
-namespace David\Notes\lib;
+namespace David\Notas\lib;
 use PDO;
 use PDOException;
 
