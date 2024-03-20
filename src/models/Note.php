@@ -22,10 +22,8 @@ class Note extends Database{
     // Método para guardar la nota en la base de datos
     public function save()
     {
-        var_dump('save');
         // Prepara la consulta SQL para insertar la nota en la tabla 'notes'
         $query = $this->connect()->prepare("INSERT INTO notes(uuid, title, content, updated) VALUES(:uuid, :title, :content, NOW())");
-        var_dump($query);
         // Ejecuta la consulta SQL con los valores de la nota
         $query->execute(['title' => $this->title, 'uuid' => $this->uuid, 'content' => $this->content,]);
     }

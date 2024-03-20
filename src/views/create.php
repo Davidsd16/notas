@@ -10,11 +10,9 @@ use David\Notas\models\Note;
         $title   = isset($_POST['title']) ? $_POST['title'] : ''; // Si 'title' está seteado, asigna su valor; de lo contrario, asigna una cadena vacía
         $content = isset($_POST['content']) ? $_POST['content'] : ''; // Si 'content' está seteado, asigna su valor; de lo contrario, asigna una cadena vacía
         
-        var_dump($title);
-        var_dump($content);
         // Creamos una nueva instancia de la clase Note con el título y el contenido obtenidos
         $note = new Note($title, $content);
-        var_dump($note);
+        
         // Guardamos la nueva nota en la base de datos
         $note->save();
     }

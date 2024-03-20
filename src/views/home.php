@@ -56,7 +56,7 @@ $notes = Note::getAll();
         // Itera sobre el array de notas y muestra el título de cada nota
         foreach ($notes as $note) {
     ?>
-        <a href="">
+        <a href="?view=view&id=<?php echo $note->getUuid(); ?>">
             <div class="note-preview">
                 <div class="title">
                     <?php echo $note->getTitle(); ?>
