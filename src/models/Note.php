@@ -50,6 +50,26 @@ class Note extends Database{
         return $note;
     }
 
+    // Función estática para obtener todas las notas de la base de datos
+    public static function getAll()
+    {  
+         // Inicializa un array para almacenar las notas
+        $notes = []; 
+         // Crea una instancia de la clase Database
+        $db = new Database;
+        // Realiza una consulta SQL para seleccionar todas las notas
+        $query = $db->connect()->query("SELECT * FROM notes");
+
+        // Recorre los registros devueltos por la consulta
+        while ($record = $query->fetch(PDO::FETCH_ASSOC)) {
+            // Crea un objeto Note a partir de cada registro y lo agrega al array de notas
+            $note = Note::createFromArray($record);
+            array_push($notes, $note);
+        }
+
+        return $notes; // Devuelve el array de notas
+    }
+
     // Método estático para crear una instancia de Note a partir de un array de datos
     public static function createFromArray($arr):Note{
         // Crea una nueva instancia de Note con el título y el contenido del array
