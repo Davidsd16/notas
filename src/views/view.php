@@ -33,37 +33,39 @@ if (isset($_GET['id'])) {
         }
 
         form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #e6e6e6;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         input[type="text"],
         textarea {
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
             box-sizing: border-box;
+            font-size: 16px;
         }
 
         input[type="submit"] {
             width: 100%;
-            padding: 10px;
-            background-color: #007bff;
+            padding: 12px;
+            background-color: #4CAF50;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-size: 16px;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #45a049;
         }
     </style>
 </head>
