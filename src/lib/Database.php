@@ -16,10 +16,10 @@ class Database{
     public function __construct()
     {
         // Configuración predeterminada para la conexión a la base de datos
-        $this->host = 'localhost';
+        $this->host = '127.0.0.1';
         $this->db = 'notas';
         $this->user = 'root';
-        $this->password = 'root';
+        $this->password = '';
         $this->charset = 'utf8mb4';
 
     }
