@@ -76,7 +76,7 @@ use David\Notas\models\Note;
 <body>
     <h1>Create Note</h1>
     <!-- Formulario para crear una nueva nota -->
-    <form action="?view=create" method="POST">
+    <form action="?view=home" method="POST">
         <input type="text" name="title" placeholder="Title..."> <!-- Campo para el título de la nota -->
         <textarea name="content" placeholder="Content..." cols="30" rows="10"></textarea> <!-- Campo para el contenido de la nota -->
         <input type="submit" value="Create note"> <!-- Botón para enviar el formulario y crear la nota -->
