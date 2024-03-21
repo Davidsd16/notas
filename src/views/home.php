@@ -53,8 +53,11 @@ $notes = Note::getAll();
     <h1>HOME</h1>
 
     <?php
+
+        require "src/components/navbar.php";
         // Itera sobre el array de notas y muestra el título de cada nota
         foreach ($notes as $note) {
+            
     ?>
         <a href="?view=view&id=<?php echo $note->getUuid(); ?>">
             <div class="note-preview">
