@@ -1,14 +1,31 @@
 <?php
 use David\Notas\models\Note;
 
-// Verifica si se proporciona un ID en la URL
-if (isset($_GET['id'])) {
-    // Si se proporciona un ID, obtiene la nota correspondiente
+if (count($_POST) > 0 ) {
+    // Obtener datos del formulario
+    $title   = isset($_POST['title']) ? $_POST['title'] : ''; 
+    $content = isset($_POST['content']) ? $_POST['content'] : ''; 
+    $uuid    = isset($_POST['id']) ? $_POST['id'] : null; // Deberías verificar si 'id' está definido y usarlo como UUID
+
+    // Obtener la nota según el UUID proporcionado
+    $note = Note::get($uuid);
+
+    // Actualizar título y contenido de la nota
+    $note->setTitle($title); // Corregido el nombre de la variable
+    $note->setContent($content); // Corregido el nombre del método
+
+    // Guardar los cambios en la base de datos
+    $note->update();
+
+} else if (isset($_GET['id'])) {
+    // Obtener la nota según el ID proporcionado en la URL
     $note = Note::get($_GET['id']);
 } else {
-    // Si no se proporciona un ID, redirige a la página de inicio
+    // Si no hay ningún ID en la URL, redirigir a la página de inicio
     header('Location: ?view=home');
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -72,13 +89,14 @@ if (isset($_GET['id'])) {
 <body>
     <!-- Contenido HTML -->
     <h1>View</h1>
-    <form action="?view=create" method="POST">
+    <form action="?view=view&id=<?php echo $note->getUuid(); ?>" method="POST">
         <!-- Campo para el título de la nota -->
         <input type="text" name="title" placeholder="Title..." value="<?php echo $note->getTitle(); ?>">
         <!-- Campo para el contenido de la nota -->
+        <input type="hidden" name="id" value="<?php echo $note->getUuid(); ?>">
         <textarea name="content" placeholder="Content..." cols="30" rows="10"><?php echo $note->getContent(); ?></textarea> 
         <!-- Botón para enviar el formulario y crear una nueva nota -->
-        <input type="submit" value="Create note"> 
+        <input type="submit" value="Update note"> 
     </form>
 </body>
 </html>

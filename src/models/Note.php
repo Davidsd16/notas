@@ -7,10 +7,10 @@ use PDO;
 
 class Note extends Database{
 
-    private string $uuid; // Propiedad para almacenar el UUID único de la nota
+    public string $uuid; // Propiedad para almacenar el UUID único de la nota
 
     // Constructor de la clase Note que acepta el título y el contenido de la nota
-    public function __construct(private string $title, private string $content)
+    public function __construct(public string $title, public string $content)
     {
         // Llama al constructor de la clase padre (Database) para establecer la conexión a la base de datos
         parent::__construct();
@@ -71,13 +71,20 @@ class Note extends Database{
     }
 
     // Método estático para crear una instancia de Note a partir de un array de datos
-    public static function createFromArray($arr):Note{
+    public static function createFromArray($arr): ?Note {
+        if (!is_array($arr) || !isset($arr['title']) || !isset($arr['content'])) {
+            return null; // Devuelve null si el array no es válido o falta información
+        }
+
         // Crea una nueva instancia de Note con el título y el contenido del array
         $note = new Note($arr['title'], $arr['content']);
-        // Establece el UUID de la nota con el valor del array
-        $note->setUuid($arr['uuid']);
-        // Devuelve la nota creada
-        return $note;
+        
+        // Establece el UUID de la nota con el valor del array si existe
+        if (isset($arr['uuid'])) {
+            $note->setUuid($arr['uuid']);
+        }
+
+        return $note; // Devuelve la nota creada
     }
 
     // Método para obtener el UUID de la nota
