@@ -19,7 +19,7 @@ class Database{
         $this->host = '127.0.0.1';
         $this->db = 'notas';
         $this->user = 'root';
-        $this->password = '';
+        $this->password = 'root';
         $this->charset = 'utf8mb4';
 
     }
