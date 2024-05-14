@@ -11,19 +11,19 @@
             margin: 0;
             padding: 0;
             background-color: #f7f7f7;
-            text-align: center; /* Centra todo el contenido horizontalmente */
+            text-align: center; 
         }
 
         nav {
-            max-width: 600px; /* Ancho máximo del navbar */
-            margin: 20px auto; /* Centra el navbar horizontalmente */
+            max-width: 600px; 
+            margin: 20px auto;
         }
 
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            background-color: #333; /* Cambia el color de fondo del navbar según tu preferencia */
+            background-color: #333; 
             overflow: hidden;
             border-radius: 5px;
         }
@@ -34,14 +34,14 @@
 
         nav ul li a {
             display: block;
-            color: white; /* Cambia el color del texto de los enlaces según tu preferencia */
+            color: white;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
         }
 
         nav ul li a:hover {
-            background-color: #555; /* Cambia el color de fondo del enlace al pasar el mouse sobre él */
+            background-color: #555; 
         }
     </style>
 </head>

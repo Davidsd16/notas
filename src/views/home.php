@@ -16,14 +16,14 @@ $notes = Note::getAll();
             margin: 0;
             padding: 0;
             background-color: #f7f7f7;
-            font-size: 16px; /* Tamaño base del texto */
-            text-align: center; /* Alineación del texto central */
+            font-size: 16px; 
+            text-align: center;
         }
 
         h1 {
             margin-top: 50px;
             color: #333;
-            font-size: 36px; /* Tamaño del título principal */
+            font-size: 36px;
         }
 
         .note-preview {
@@ -36,9 +36,8 @@ $notes = Note::getAll();
             color: #333;
             display: block;
             transition: all 0.3s ease;
-            width: 80%; /* Ancho del contenedor de vista previa de la nota */
-            margin: 0 auto; /* Centra el contenedor horizontalmente */
-            max-width: 400px; /* Ancho máximo para cada nota */
+            width: 80%; 
+            max-width: 400px; 
         }
 
         .note-preview:hover {
@@ -48,10 +47,10 @@ $notes = Note::getAll();
         }
 
         .title {
-            font-size: 16px; /* Tamaño del título de la nota */
+            font-size: 16px;
             font-weight: bold;
             margin-bottom: 5px;
-            text-align: center; /* Centra el texto del título */
+            text-align: center; 
         }
     </style>
 </head>
