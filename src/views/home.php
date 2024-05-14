@@ -37,7 +37,10 @@ $notes = Note::getAll();
             display: block;
             transition: all 0.3s ease;
             width: 80%; 
-            max-width: 400px; 
+            max-width: 400px;
+            width: 80%; 
+            margin: 0 auto; 
+            max-width: 400px;
         }
 
         .note-preview:hover {
