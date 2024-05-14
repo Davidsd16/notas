@@ -6,12 +6,26 @@
     <title>Navbar</title>
     <style>
         /* Estilos CSS para el navbar */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            text-align: center; /* Centra todo el contenido horizontalmente */
+        }
+
+        nav {
+            max-width: 600px; /* Ancho máximo del navbar */
+            margin: 20px auto; /* Centra el navbar horizontalmente */
+        }
+
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             background-color: #333; /* Cambia el color de fondo del navbar según tu preferencia */
             overflow: hidden;
+            border-radius: 5px;
         }
 
         nav ul li {
